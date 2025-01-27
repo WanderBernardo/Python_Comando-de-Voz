@@ -5,7 +5,7 @@ import speech_recognition as sr
 import os
 
 
-#FunÃ§Ã£o responsÃ¡vel por ouvir e reconhecer a fala
+#Função responsável por ouvir e reconhecer a fala
 def ouvir_microfone():
     #Habilita o microfone para ouvir o usuÃ¡rio
     microfone = sr.Recognizer()
@@ -15,14 +15,14 @@ def ouvir_microfone():
         #Chama um algoritmo de reducao de ruidos no som
         microfone.adjust_for_ambient_noise(source)
         
-        #Avisa o usuÃ¡rio que estÃ¡ pronto para ouvir
+        #Avisa o usuário que estão pronto para ouvir
         print("Diga alguma coisa: ")
         
         #Armazena a informacao de audio na variavel
         audio = microfone.listen(source)
 
     try:
-        #Passa a variÃ¡vel para o algoritmo reconhecedor de padroes
+        #Passa a variável para o algoritmo reconhecedor de padroes
         frase = microfone.recognize_google(audio, language='pt-BR')
 
         if "navegador" in frase:
@@ -46,11 +46,11 @@ def ouvir_microfone():
             return True
     
         #Retorna a frase pronunciada
-        print("VocÃª disse: " + frase)
+        print("Você disse: " + frase)
     
     #Se nao reconheceu o padrao de fala, exibe a mensagem
     except sr.UnkownValueError:
-        print("NÃ£o entendi")
+        print("Não entendi")
     
     return False
     
